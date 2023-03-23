@@ -1,10 +1,14 @@
-import { ThemeProvider } from '@emotion/react';
+import { ThemeProvider } from '@mui/system';
 import { CssBaseline } from '@mui/material';
-import { createTheme } from '@mui/system';
+import { createTheme } from '@mui/material/styles';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Index from './pages/Index';
 
-const theme = createTheme({});
+const theme = createTheme({
+  palette: {
+    mode: 'light'
+  }
+});
 
 const router = createBrowserRouter([
   {

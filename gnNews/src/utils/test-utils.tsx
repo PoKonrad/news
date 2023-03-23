@@ -19,9 +19,8 @@ interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'> {
 export function renderWithProviders(
   ui: React.ReactElement,
   {
-    preloadedState = {},
     // Automatically create a store instance if no store was passed in
-    store = configureStore({ reducer: rootReducer, preloadedState }),
+    store = configureStore({ reducer: rootReducer }),
     ...renderOptions
   }: ExtendedRenderOptions = {}
 ) {

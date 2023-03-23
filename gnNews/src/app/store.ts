@@ -1,6 +1,13 @@
 import { configureStore, ThunkAction, Action, combineReducers } from '@reduxjs/toolkit';
+import { selectedCountrySlice } from '../features/selectedContrySlice';
+import { sidePanelSlice } from '../features/sidePanelSlice';
+import { viewModeSlice } from '../features/viewModeSlice';
 
-export const rootReducer = combineReducers({});
+export const rootReducer = combineReducers({
+  viewMode: viewModeSlice.reducer,
+  sidePanel: sidePanelSlice.reducer,
+  selectedCountry: selectedCountrySlice.reducer
+});
 
 export const store = configureStore({
   reducer: rootReducer
