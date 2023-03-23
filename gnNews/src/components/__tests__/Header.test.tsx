@@ -9,10 +9,10 @@ describe('Header', () => {
   });
   it('only lets one mode be selected at a time', () => {
     renderWithProviders(<Header />);
-    const grid = screen.getByTestId('gridToggle');
-    const list = screen.getByTestId('listToggle');
-    fireEvent.click(grid);
-    expect(grid).toHaveClass('Mui-selected');
-    expect(list).not.toHaveClass('Mui-selected');
+    const toggleButton = screen.getAllByTestId('toggleButton');
+
+    fireEvent.click(toggleButton[1]);
+    expect(toggleButton[1]).toHaveClass('Mui-selected');
+    expect(toggleButton[0]).not.toHaveClass('Mui-selected');
   });
 });

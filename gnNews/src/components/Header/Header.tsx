@@ -10,13 +10,13 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import { Box } from '@mui/system';
 import { blue } from '@mui/material/colors';
-import ViewListIcon from '@mui/icons-material/ViewList';
-import ViewModuleIcon from '@mui/icons-material/ViewModule';
 import InfoIcon from '@mui/icons-material/Info';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectViewMode, setViewMode } from '../../features/viewModeSlice';
 import { toggleSidePanel } from '../../features/sidePanelSlice';
 import LanguageSelection from './LanguageSelection';
+import DisplayButton from './DisplayToggleButtons';
+import DisplayToggleButtons from './DisplayToggleButtons';
 
 const Header = () => {
   const mode = useSelector(selectViewMode);
@@ -44,7 +44,12 @@ const Header = () => {
           color="inherit"
           size="large"
           edge="start"
-          sx={{ mr: 2 }}
+          sx={{
+            mr: {
+              xs: 0,
+              sm: 2
+            }
+          }}
           onClick={handleMenuClick}>
           <MenuIcon />
         </IconButton>
@@ -54,58 +59,14 @@ const Header = () => {
 
         <Box
           sx={{
-            flexGrow: 1,
             display: 'flex'
           }}>
-          <ToggleButtonGroup
-            exclusive
-            value={mode.viewMode}
-            color="standard"
-            size="small"
-            sx={{ backgroundColor: blue[50] }}
-            onChange={handleModeChange}>
-            <ToggleButton value="grid" data-testid="gridToggle">
-              <ViewModuleIcon /> <Typography variant="button">Grid</Typography>
-            </ToggleButton>
-            <ToggleButton value="list" data-testid="listToggle">
-              <ViewListIcon />{' '}
-              <Typography
-                sx={{
-                  display: {
-                    xs: 'none',
-                    sm: 'block'
-                  }
-                }}
-                variant="button">
-                List
-              </Typography>
-            </ToggleButton>
-          </ToggleButtonGroup>
-        </Box>
-
-        <Box
-          sx={{
-            display: 'flex'
-          }}>
-          <Button
-            endIcon={<InfoIcon />}
-            sx={{
-              my: 2,
-              color: 'white'
-            }}>
-            <Typography
-              variant="button"
-              sx={{
-                display: {
-                  xs: 'none',
-                  sm: 'flex'
-                }
-              }}>
-              Project Info
-            </Typography>
-          </Button>
+          <IconButton color="inherit">
+            <InfoIcon />
+          </IconButton>
           <LanguageSelection />
         </Box>
+        <DisplayToggleButtons />
       </Toolbar>
     </AppBar>
   );
