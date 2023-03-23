@@ -103,8 +103,8 @@ const Header = () => {
               }}>
               Project Info
             </Typography>
-            <LanguageSelection />
           </Button>
+          <LanguageSelection />
         </Box>
       </Toolbar>
     </AppBar>
