@@ -1,4 +1,5 @@
 import Header from '../components/Header/Header';
+import Main from '../components/Main/Main';
 import SideMenu from '../components/SideMenu/SideMenu';
 
 const Index = () => {
@@ -6,6 +7,7 @@ const Index = () => {
     <div>
       <Header />
       <SideMenu />
+      <Main />
     </div>
   );
 };
