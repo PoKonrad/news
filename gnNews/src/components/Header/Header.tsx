@@ -38,7 +38,7 @@ const Header = () => {
   };
 
   return (
-    <AppBar>
+    <AppBar position="sticky">
       <Toolbar>
         <IconButton
           color="inherit"
