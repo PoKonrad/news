@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "totalResults": 3,
+  "articles": [
+    {
+      "source": { "id": null, "name": "12345" },
+      "author": "Test Author",
+      "title": "Some title",
+      "description": "Lorem ipsum",
+      "url": "http://test.test",
+      "urlToImage": "http://test.test/1",
+      "publishedAt": "2023-01-24T00:00:00Z",
+      "content": "Lorem ipsum"
+    },
+    {
+      "source": { "id": null, "name": "1234" },
+      "author": "Test Author2",
+      "title": "Some title2",
+      "description": "Lorem ipsum",
+      "url": "http://test.test",
+      "urlToImage": "http://test.test/1",
+      "publishedAt": "2023-01-24T00:00:00Z",
+      "content": "Lorem ipsum"
+    },
+    {
+      "source": { "id": null, "name": "123" },
+      "author": "Test Author3",
+      "title": "Some title3",
+      "description": "Lorem ipsum",
+      "url": "http://test.test",
+      "urlToImage": "http://test.test/1",
+      "publishedAt": "2023-01-24T00:00:00Z",
+      "content": "Lorem ipsum"
+    }
+  ]
+}
