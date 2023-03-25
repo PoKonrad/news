@@ -1,5 +1,5 @@
 import { ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
-import { blue } from '@mui/material/colors';
+import { blue, grey } from '@mui/material/colors';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectViewMode, setViewMode } from '../../features/viewModeSlice';
 import ViewListIcon from '@mui/icons-material/ViewList';
@@ -37,10 +37,23 @@ const DisplayButton: React.FC = () => {
       value={mode.viewMode}
       color="standard"
       size="small"
-      sx={{ backgroundColor: 'white', height: 30 }}
+      sx={{ backgroundColor: 'none', height: 30, outline: 'none' }}
       onChange={handleModeChange}>
       {buttons.map(({ value, Icon }) => (
-        <ToggleButton value={value} data-testid={'toggleButton'}>
+        <ToggleButton
+          value={value}
+          data-testid={'toggleButton'}
+          sx={{
+            border: 'none',
+            borderRadius: 10,
+            color: 'white',
+            opacity: 0.6,
+            '&.Mui-selected': {
+              color: 'white',
+              opacity: 1
+            },
+            mx: 0.5
+          }}>
           {Icon}
           <Typography
             sx={{

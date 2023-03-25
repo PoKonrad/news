@@ -56,6 +56,7 @@ const Header = () => {
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           gnNews
         </Typography>
+        <DisplayToggleButtons />
 
         <Box
           sx={{
@@ -66,7 +67,6 @@ const Header = () => {
           </IconButton>
           <LanguageSelection />
         </Box>
-        <DisplayToggleButtons />
       </Toolbar>
     </AppBar>
   );
