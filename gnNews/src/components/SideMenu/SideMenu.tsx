@@ -1,16 +1,4 @@
-import {
-  Box,
-  Divider,
-  Drawer,
-  IconButton,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  ListSubheader,
-  Typography
-} from '@mui/material';
+import { Box, Divider, Drawer, IconButton, List, ListSubheader, Typography } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectSidePanel, toggleSidePanel } from '../../features/sidePanelSlice';
@@ -41,7 +29,7 @@ const SideMenu = () => {
         </IconButton>
       </Box>
       <Divider />
-      <Box minWidth={'18rem'}>
+      <Box width="85vw" maxWidth="20rem">
         <List subheader={<ListSubheader>Country Selection</ListSubheader>}>
           {counties.map((country: Country) => (
             <SideMenuItem key={country.code} country={country} />
