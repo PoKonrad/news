@@ -1,5 +1,4 @@
 import { ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
-import { blue, grey } from '@mui/material/colors';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectViewMode, setViewMode } from '../../features/viewModeSlice';
 import ViewListIcon from '@mui/icons-material/ViewList';

@@ -1,15 +1,12 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import InfoIcon from '@mui/icons-material/Info';
-import MenuIcon from '@mui/icons-material/Menu';
-import { Divider, IconButton, ListItemIcon, ListItemText, Typography } from '@mui/material';
-import { Check, Settings } from '@mui/icons-material';
+import { Divider, IconButton, ListItemIcon } from '@mui/material';
+import { Settings } from '@mui/icons-material';
 import DisplayToggleButtons from './DisplayToggleButtons';
 import { useDispatch, useSelector } from 'react-redux';
 import { setInfoDialogState } from '../../features/infoDialogSlice';
-import { useEffect } from 'react';
 import LanguageItem from './LanguageItem';
 
 export default function BasicMenu() {
