@@ -24,7 +24,9 @@ const NewsGrid = () => {
       }}>
       {isLoading && <div>Loading...</div>}
       {data?.articles.map((article: Article) => (
-        <Card sx={{ maxWidth: '20rem', height: '29rem', flexGrow: 1, borderRadius: 5 }}>
+        <Card
+          sx={{ maxWidth: '20rem', height: '29rem', flexGrow: 1, borderRadius: 5 }}
+          key={article.url}>
           <CardActionArea sx={{ height: '100%', width: '100%' }}>
             <CardMedia component="img" height={200} image={article.urlToImage} />
             <CardContent

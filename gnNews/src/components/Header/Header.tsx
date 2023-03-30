@@ -17,6 +17,7 @@ import { toggleSidePanel } from '../../features/sidePanelSlice';
 import LanguageSelection from './LanguageSelection';
 import DisplayButton from './DisplayToggleButtons';
 import DisplayToggleButtons from './DisplayToggleButtons';
+import MobileMenu from './MobileMenu';
 
 const Header = () => {
   const mode = useSelector(selectViewMode);
@@ -56,17 +57,7 @@ const Header = () => {
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           gnNews
         </Typography>
-        <DisplayToggleButtons />
-
-        <Box
-          sx={{
-            display: 'flex'
-          }}>
-          <IconButton color="inherit">
-            <InfoIcon />
-          </IconButton>
-          <LanguageSelection />
-        </Box>
+        <MobileMenu />
       </Toolbar>
     </AppBar>
   );

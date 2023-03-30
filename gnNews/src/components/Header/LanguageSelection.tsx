@@ -1,8 +1,18 @@
-import { IconButton, Menu, MenuItem } from '@mui/material';
+import {
+  Button,
+  IconButton,
+  List,
+  ListItem,
+  ListItemIcon,
+  Menu,
+  MenuItem,
+  Paper
+} from '@mui/material';
 import React, { useState } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import GridViewIcon from '@mui/icons-material/GridView';
 import LanguageIcon from '@mui/icons-material/Language';
+import { Box } from '@mui/system';
 
 const languages = [
   {
@@ -28,22 +38,34 @@ const LanguageSelection = () => {
     setAnchorElLanguage(null);
   };
   return (
-    <div>
-      {' '}
-      <Menu open={languageSelectOpen} onClose={handleCloseLanguageMenu} anchorEl={anchorElLanguage}>
+    <>
+      <Menu
+        open={languageSelectOpen}
+        onClose={handleCloseLanguageMenu}
+        anchorEl={anchorElLanguage}
+        transformOrigin={{ horizontal: -110, vertical: 'center' }}>
         {languages.map((language) => (
           <MenuItem key={language.value} onClick={handleCloseLanguageMenu}>
-            <MenuIcon sx={{ mr: 1 }}>
+            <MenuIcon>
               <GridViewIcon />
             </MenuIcon>
             {language.label}
           </MenuItem>
         ))}
       </Menu>
-      <IconButton sx={{ my: 2, color: 'white', display: 'flex' }} onClick={handleOpenLanguageMenu}>
-        <LanguageIcon />
-      </IconButton>
-    </div>
+      <Box
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+        onClick={handleOpenLanguageMenu}>
+        <MenuIcon>
+          <LanguageIcon />
+        </MenuIcon>
+        Language
+      </Box>
+    </>
   );
 };
 

@@ -35,36 +35,25 @@ const DisplayButton: React.FC = () => {
     <ToggleButtonGroup
       exclusive
       value={mode.viewMode}
-      color="standard"
       size="small"
-      sx={{ backgroundColor: 'none', height: 30, outline: 'none' }}
+      sx={{ backgroundColor: 'none', height: 30, outline: 'none', mx: 1 }}
       onChange={handleModeChange}>
       {buttons.map(({ value, Icon }) => (
         <ToggleButton
+          key={value}
           value={value}
           data-testid={'toggleButton'}
           sx={{
             border: 'none',
             borderRadius: 10,
-            color: 'white',
             opacity: 0.6,
             '&.Mui-selected': {
-              color: 'white',
+              color: 'primary.main',
               opacity: 1
-            },
-            mx: 0.5
+            }
           }}>
           {Icon}
-          <Typography
-            sx={{
-              display: {
-                xs: 'none',
-                sm: 'block'
-              }
-            }}
-            variant="button">
-            {value}
-          </Typography>
+          <Typography variant="button">{value}</Typography>
         </ToggleButton>
       ))}
     </ToggleButtonGroup>
