@@ -8,6 +8,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Divider, IconButton, ListItemIcon, ListItemText, Typography } from '@mui/material';
 import { Check, Settings } from '@mui/icons-material';
 import DisplayToggleButtons from './DisplayToggleButtons';
+import { useDispatch, useSelector } from 'react-redux';
+import { setInfoDialogState } from '../../features/infoDialogSlice';
+import { useEffect } from 'react';
 
 export default function BasicMenu() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -17,6 +20,13 @@ export default function BasicMenu() {
   };
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const dispatch = useDispatch();
+
+  const handleInfoClick = () => {
+    dispatch(setInfoDialogState(true));
+    handleClose();
   };
 
   return (
@@ -51,7 +61,7 @@ export default function BasicMenu() {
         MenuListProps={{
           'aria-labelledby': 'basic-button'
         }}>
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={handleInfoClick}>
           <ListItemIcon>
             <InfoIcon />
           </ListItemIcon>
