@@ -1,6 +1,7 @@
 import { configureStore, ThunkAction, Action, combineReducers } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/dist/query';
 import { infoDialogSlice } from '../features/infoDialogSlice';
+import { localizationSlice } from '../features/localizationSlice';
 import { newsApi } from '../features/newsApi';
 import { selectedCountrySlice } from '../features/selectedContrySlice';
 import { sidePanelSlice } from '../features/sidePanelSlice';
@@ -11,7 +12,8 @@ export const rootReducer = combineReducers({
   sidePanel: sidePanelSlice.reducer,
   selectedCountry: selectedCountrySlice.reducer,
   newsApi: newsApi.reducer,
-  infoDialog: infoDialogSlice.reducer
+  infoDialog: infoDialogSlice.reducer,
+  localization: localizationSlice.reducer
 });
 
 export const store = configureStore({

@@ -2,7 +2,6 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import LanguageSelection from './LanguageSelection';
 import InfoIcon from '@mui/icons-material/Info';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Divider, IconButton, ListItemIcon, ListItemText, Typography } from '@mui/material';
@@ -11,6 +10,7 @@ import DisplayToggleButtons from './DisplayToggleButtons';
 import { useDispatch, useSelector } from 'react-redux';
 import { setInfoDialogState } from '../../features/infoDialogSlice';
 import { useEffect } from 'react';
+import LanguageItem from './LanguageItem';
 
 export default function BasicMenu() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -28,6 +28,17 @@ export default function BasicMenu() {
     dispatch(setInfoDialogState(true));
     handleClose();
   };
+
+  const languages = [
+    {
+      language: 'en',
+      fullLanguage: 'English'
+    },
+    {
+      language: 'pl',
+      fullLanguage: 'Polski'
+    }
+  ];
 
   return (
     <div>
@@ -69,15 +80,13 @@ export default function BasicMenu() {
         </MenuItem>
         <Divider />
         <MenuItem disabled>Language</MenuItem>
-        <MenuItem>
-          <ListItemIcon>
-            <Check />
-          </ListItemIcon>
-          Polski
-        </MenuItem>
-        <MenuItem>
-          <ListItemIcon></ListItemIcon>English
-        </MenuItem>
+        {languages.map((language) => (
+          <LanguageItem
+            key={language.language}
+            language={language.language}
+            fullLanguage={language.fullLanguage}
+          />
+        ))}
         <Divider />
         <MenuItem disabled>Display</MenuItem>
         <MenuItem disableRipple>
