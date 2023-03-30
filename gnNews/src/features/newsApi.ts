@@ -10,8 +10,12 @@ export const newsApi = createApi({
     getNews: builder.query<News, void>({
       query: () => `top-headlines?country=us&apiKey=${API_KEY}`,
       keepUnusedDataFor: 30
+    }),
+    getNewsByCountry: builder.query<News, string>({
+      query: (country) => `top-headlines?country=${country}&apiKey=${API_KEY}`,
+      keepUnusedDataFor: 30
     })
   })
 });
 
-export const { useGetNewsQuery } = newsApi;
+export const { useGetNewsByCountryQuery } = newsApi;

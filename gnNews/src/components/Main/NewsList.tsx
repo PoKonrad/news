@@ -1,15 +1,19 @@
-import { Box, Divider, List, ListItem, ListItemButton, Typography } from '@mui/material';
-import React from 'react';
-import { useGetNewsQuery } from '../../features/newsApi';
+import { Box, List, ListItem, ListItemButton, Typography } from '@mui/material';
+import { useGetNewsForCountry } from '../../hooks/useGetNewsForCountry';
+import { Article } from '../../types';
 
 const NewsList = () => {
-  const { data, error, isLoading } = useGetNewsQuery();
+  const { data, error, isLoading } = useGetNewsForCountry();
+
+  if (error) {
+    return <div> Something went wrong... </div>;
+  }
 
   return (
     <Box>
       <List>
         {isLoading && <div>Loading...</div>}
-        {data?.articles.map((article) => (
+        {data?.articles.map((article: Article) => (
           <>
             <ListItem divider key={article.url}>
               <ListItemButton>

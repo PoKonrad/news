@@ -8,11 +8,10 @@ import {
   Typography
 } from '@mui/material';
 import { Box } from '@mui/system';
-import { useGetNewsQuery } from '../../features/newsApi';
-
+import { Article } from '../../types';
+import { useGetNewsForCountry } from '../../hooks/useGetNewsForCountry';
 const NewsGrid = () => {
-  const { data, error, isLoading } = useGetNewsQuery();
-  console.log(data);
+  const { data, error, isLoading } = useGetNewsForCountry();
   return (
     <Box
       sx={{
@@ -24,7 +23,7 @@ const NewsGrid = () => {
         gap: '1rem'
       }}>
       {isLoading && <div>Loading...</div>}
-      {data?.articles.map((article) => (
+      {data?.articles.map((article: Article) => (
         <Card sx={{ maxWidth: '20rem', height: '29rem', flexGrow: 1, borderRadius: 5 }}>
           <CardActionArea sx={{ height: '100%', width: '100%' }}>
             <CardMedia component="img" height={200} image={article.urlToImage} />
