@@ -2,6 +2,7 @@ import { ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/mater
 import { useDispatch, useSelector } from 'react-redux';
 import { selectedCountry, setSelectedCountry } from '../../features/selectedContrySlice';
 import type { Country } from '../../types';
+import { SvgIcon } from '@mui/material';
 
 interface SideMenuItemProps {
   country: Country;
@@ -21,7 +22,9 @@ const SideMenuItem: React.FC<SideMenuItemProps> = ({ country }) => {
         onClick={handleListItemButtonClick}
         selected={currentCountry === country}
         data-testid="ListItemButton">
-        <ListItemIcon></ListItemIcon>
+        <ListItemIcon>
+          <img width={20} src={`/flags/4x3/${country.code.toLowerCase()}.svg`} alt={country.name} />
+        </ListItemIcon>
         <ListItemText>{country.name}</ListItemText>
       </ListItemButton>
     </ListItem>
