@@ -56,12 +56,12 @@ export default function BasicMenu() {
         data-testid="settings-menu"
         sx={{
           '& .MuiPaper-root': {
-            minWidth: '10rem',
+            minWidth: '14rem',
             maxWidth: '100%'
           },
           '& .MuiMenuItem-root': {
             xs: {
-              minWidth: '10rem',
+              minWidth: '14rem',
               maxWidth: '100%'
             }
           }
