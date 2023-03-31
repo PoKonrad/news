@@ -2,14 +2,19 @@
     "env": {
         "browser": true,
         "es2021": true,
-        "jest/globals": true
+        "jest/globals": true,
+        "cypress/globals": true
     },
+    "globals": {
+        "cy": "readonly",
+        "Cypress": "readonly"},
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:jest/recommended",
-        "plugin:testing-library/react"
+        "plugin:testing-library/react",
+        "plugin:cypress/recommended"
     ],
     "overrides": [
     ],
@@ -21,7 +26,8 @@
     "plugins": [
         "react",
         "@typescript-eslint",
-        "jest"
+        "jest",
+        "cypress"
     ],
     "rules": {
     }
