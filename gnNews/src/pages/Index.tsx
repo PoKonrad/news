@@ -1,3 +1,4 @@
+import ArticleDialog from '../components/ArticleDialog';
 import Header from '../components/Header/Header';
 import InfoDialog from '../components/InfoDialog';
 import Main from '../components/Main/Main';
@@ -10,6 +11,7 @@ const Index = () => {
       <SideMenu />
       <Main />
       <InfoDialog />
+      <ArticleDialog />
     </div>
   );
 };

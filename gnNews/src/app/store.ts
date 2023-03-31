@@ -1,5 +1,6 @@
 import { configureStore, ThunkAction, Action, combineReducers } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/dist/query';
+import articlePopupSlice from '../features/articlePopupSlice';
 import { infoDialogSlice } from '../features/infoDialogSlice';
 import { localizationSlice } from '../features/localizationSlice';
 import { newsApi } from '../features/newsApi';
@@ -13,7 +14,8 @@ export const rootReducer = combineReducers({
   selectedCountry: selectedCountrySlice.reducer,
   newsApi: newsApi.reducer,
   infoDialog: infoDialogSlice.reducer,
-  localization: localizationSlice.reducer
+  localization: localizationSlice.reducer,
+  articlePopup: articlePopupSlice
 });
 
 export const store = configureStore({

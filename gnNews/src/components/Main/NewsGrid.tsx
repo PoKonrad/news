@@ -10,7 +10,15 @@ import {
 import { Box } from '@mui/system';
 import { Article } from '../../types';
 import { useGetNewsForCountry } from '../../hooks/useGetNewsForCountry';
-const NewsGrid = () => {
+import { useDispatch } from 'react-redux';
+import { setArticlePopupArticle, setArticlePopupState } from '../../features/articlePopupSlice';
+export const NewsGrid = () => {
+  const dispatch = useDispatch();
+  const handleClick = (article: Article) => {
+    dispatch(setArticlePopupState(true));
+    dispatch(setArticlePopupArticle(article));
+  };
+
   const { data, error, isLoading } = useGetNewsForCountry();
   return (
     <Box
@@ -27,7 +35,11 @@ const NewsGrid = () => {
         <Card
           sx={{ maxWidth: '20rem', height: '29rem', flexGrow: 1, borderRadius: 5 }}
           key={article.url}>
-          <CardActionArea sx={{ height: '100%', width: '100%' }}>
+          <CardActionArea
+            sx={{ height: '100%', width: '100%' }}
+            onClick={() => {
+              handleClick(article);
+            }}>
             <CardMedia component="img" height={200} image={article.urlToImage} />
             <CardContent
               sx={{
@@ -72,5 +84,3 @@ const NewsGrid = () => {
     </Box>
   );
 };
-
-export default NewsGrid;

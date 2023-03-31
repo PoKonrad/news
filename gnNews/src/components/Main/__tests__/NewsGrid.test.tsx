@@ -1,10 +1,5 @@
-// write a unit test for the NewsGrid component
-// check if the component renders correctly
-// check if the component renders the correct number of articles
-// mock a web request using the Mock Service Worker library:
-
 import { renderWithProviders } from '../../../utils/test-utils';
-import NewsGrid from '../NewsGrid';
+import { NewsGrid } from '../NewsGrid';
 import { screen } from '@testing-library/react';
 import { server } from '../../../mocks/server';
 import { store } from '../../../app/store';

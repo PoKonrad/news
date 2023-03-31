@@ -1,4 +1,4 @@
-import NewsGrid from './NewsGrid';
+import { NewsGrid } from './NewsGrid';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectViewMode, setViewMode } from '../../features/viewModeSlice';
 import NewsList from './NewsList';
