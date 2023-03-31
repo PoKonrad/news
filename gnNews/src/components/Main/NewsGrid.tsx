@@ -3,10 +3,12 @@ import { Box } from '@mui/system';
 import { Article } from '../../types';
 import { useGetNewsForCountry } from '../../hooks/useGetNewsForCountry';
 import { useArticlePopup } from '../../hooks/useArticlePopup';
+import { useTranslation } from 'react-i18next';
 export const NewsGrid = () => {
   const openArticle = useArticlePopup();
 
   const { data, error, isLoading } = useGetNewsForCountry();
+  const { i18n } = useTranslation();
   return (
     <Box
       sx={{
@@ -42,7 +44,7 @@ export const NewsGrid = () => {
                   {article?.source?.name}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  {new Date(article?.publishedAt).toLocaleString('en-US', {
+                  {new Date(article?.publishedAt).toLocaleString(i18n.language, {
                     month: 'short',
                     day: 'numeric',
                     year: 'numeric'

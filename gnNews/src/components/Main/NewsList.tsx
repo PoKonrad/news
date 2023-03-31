@@ -2,9 +2,11 @@ import { Box, List, ListItem, ListItemButton, Typography } from '@mui/material';
 import { useArticlePopup } from '../../hooks/useArticlePopup';
 import { useGetNewsForCountry } from '../../hooks/useGetNewsForCountry';
 import { Article } from '../../types';
+import { useTranslation } from 'react-i18next';
 
 const NewsList = () => {
   const { data, error, isLoading } = useGetNewsForCountry();
+  const { i18n } = useTranslation();
 
   const openArticle = useArticlePopup();
 
@@ -39,7 +41,7 @@ const NewsList = () => {
                     {article?.source?.name}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    {new Date(article?.publishedAt).toLocaleString('en-US', {
+                    {new Date(article?.publishedAt).toLocaleString(i18n.language, {
                       month: 'short',
                       day: 'numeric',
                       year: 'numeric'
