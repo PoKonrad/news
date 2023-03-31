@@ -22,7 +22,7 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <RouterProvider router={router} />;
+        <RouterProvider router={router} />
       </ThemeProvider>
     </>
   );
