@@ -1,41 +1,24 @@
-import {
-  Box,
-  Divider,
-  Drawer,
-  IconButton,
-  List,
-  ListSubheader,
-  Typography,
-  TextField
-} from '@mui/material';
+import { Box, Drawer, IconButton, List, ListSubheader, Typography, TextField } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectSidePanel, toggleSidePanel } from '../../features/sidePanelSlice';
-import counties from '../../assets/countries.json';
+import countryList from '../../assets/countries.json';
 import SideMenuItem from './SideMenuItem';
 import type { Country } from '../../types';
 import { useTranslation } from 'react-i18next';
-import { useState, useEffect } from 'react';
+import { useURLCountryParam } from '../../hooks/useURLCountryParam';
+import { useFilter } from '../../hooks/useFilter';
 
 const SideMenu = () => {
+  const { filter, setFilter, countries } = useFilter(countryList);
   const isOpen = useSelector(selectSidePanel);
   const dispatch = useDispatch();
   const { t } = useTranslation();
-
-  const [filter, setFilter] = useState('');
-  const [countries, setCountries] = useState(counties);
+  useURLCountryParam();
 
   const handleClose = () => {
     dispatch(toggleSidePanel());
   };
-
-  useEffect(() => {
-    const filteredCountries = counties.filter(
-      (country: Country) =>
-        country.name.toLowerCase().includes(filter) || country.code.toLowerCase().includes(filter)
-    );
-    setCountries(filteredCountries);
-  }, [filter]);
 
   return (
     <Drawer open={isOpen.sidePanelOpen} onClose={handleClose}>

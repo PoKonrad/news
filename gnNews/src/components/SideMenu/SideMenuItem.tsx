@@ -2,7 +2,6 @@ import { ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/mater
 import { useDispatch, useSelector } from 'react-redux';
 import { selectedCountry, setSelectedCountry } from '../../features/selectedContrySlice';
 import type { Country } from '../../types';
-import { SvgIcon } from '@mui/material';
 
 interface SideMenuItemProps {
   country: Country;

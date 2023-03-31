@@ -12,7 +12,7 @@ const theme = createTheme({
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/country?/:countryName?',
     element: <Index />
   }
 ]);
