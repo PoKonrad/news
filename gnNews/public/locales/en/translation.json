@@ -7,5 +7,5 @@
   "country-selection": "Country selection",
   "close": "Close",
   "article-count": "Number of visible articles",
-  "info-text": "Lorem ipsum"
+  "info-text": "Most challanging part was to find the right balance between the amount of information and the amount of space. The design is responsive and adapts to the screen size. The articles are displayed in a grid and the user can switch to a list view. The user can select the country of interest and the number of articles to be displayed. Most fun, e2e tests :)"
 }

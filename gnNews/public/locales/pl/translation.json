@@ -7,5 +7,5 @@
   "country-selection": "Wybór kraju",
   "close": "Zamknij",
   "article-count": "Ilość widocznych artykułów",
-  "info-text": "Lorem ipsum"
+  "info-text": "Najtrudniejszą częścią było znalezienie odpowiedniej równowagi między ilością informacji a ilością miejsca. Projekt jest responsywny i dostosowuje się do wielkości ekranu. Artykuły są wyświetlane w siatce, a użytkownik może przełączyć się na widok listy. Użytkownik może wybrać kraj zainteresowania i liczbę wyświetlanych artykułów. Najwięcej zabawy przyniosły testy end-to-end :)"
 }
