@@ -8,9 +8,11 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { selectArticlePopup, setArticlePopupState } from '../features/articlePopupSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { Divider, Grid, Link, Typography } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
 export default function ArticleDialog() {
   const [open, setOpen] = React.useState(true);
+  const { t } = useTranslation();
 
   const article = useSelector(selectArticlePopup);
   const dispatch = useDispatch();
@@ -77,7 +79,7 @@ export default function ArticleDialog() {
         </DialogContent>
         <Divider />
         <DialogActions>
-          <Button onClick={handleClose}>Close</Button>
+          <Button onClick={handleClose}>{t('close')}</Button>
         </DialogActions>
       </Dialog>
     </div>

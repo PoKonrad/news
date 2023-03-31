@@ -3,19 +3,23 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectViewMode, setViewMode } from '../../features/viewModeSlice';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import ViewModuleIcon from '@mui/icons-material/ViewModule';
-
-const buttons = [
-  {
-    value: 'grid',
-    Icon: <ViewModuleIcon />
-  },
-  {
-    value: 'list',
-    Icon: <ViewListIcon />
-  }
-];
+import { useTranslation } from 'react-i18next';
 
 const DisplayButton: React.FC = () => {
+  const { t } = useTranslation();
+  const buttons = [
+    {
+      value: 'list',
+      text: t('list'),
+      Icon: <ViewModuleIcon />
+    },
+    {
+      value: 'grid',
+      text: t('grid'),
+      Icon: <ViewListIcon />
+    }
+  ];
+
   const mode = useSelector(selectViewMode);
   const dispatch = useDispatch();
 
@@ -37,7 +41,7 @@ const DisplayButton: React.FC = () => {
       size="small"
       sx={{ backgroundColor: 'none', height: 30, outline: 'none', mx: 1 }}
       onChange={handleModeChange}>
-      {buttons.map(({ value, Icon }) => (
+      {buttons.map(({ value, Icon, text }) => (
         <ToggleButton
           key={value}
           value={value}
@@ -52,7 +56,7 @@ const DisplayButton: React.FC = () => {
             }
           }}>
           {Icon}
-          <Typography variant="button">{value}</Typography>
+          <Typography variant="button">{text}</Typography>
         </ToggleButton>
       ))}
     </ToggleButtonGroup>

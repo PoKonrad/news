@@ -12,6 +12,6 @@ describe('Header', () => {
     renderWithProviders(<Header />);
     const settingsButton = screen.getByTestId('settings-button');
     fireEvent.click(settingsButton);
-    expect(screen.getByText('Info')).toBeInTheDocument();
+    expect(screen.getByTestId('settings-menu')).toBeVisible();
   });
 });

@@ -5,10 +5,12 @@ import { selectSidePanel, toggleSidePanel } from '../../features/sidePanelSlice'
 import counties from '../../assets/countries.json';
 import SideMenuItem from './SideMenuItem';
 import type { Country } from '../../types';
+import { useTranslation } from 'react-i18next';
 
 const SideMenu = () => {
   const isOpen = useSelector(selectSidePanel);
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const handleClose = () => {
     dispatch(toggleSidePanel());
@@ -30,7 +32,7 @@ const SideMenu = () => {
       </Box>
       <Divider />
       <Box width="85vw" maxWidth="20rem">
-        <List subheader={<ListSubheader>Country Selection</ListSubheader>}>
+        <List subheader={<ListSubheader>{t('country-selection')}</ListSubheader>}>
           {counties.map((country: Country) => (
             <SideMenuItem key={country.code} country={country} />
           ))}

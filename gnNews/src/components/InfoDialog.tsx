@@ -7,9 +7,11 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectInfoDialog, setInfoDialogState } from '../features/infoDialogSlice';
+import { useTranslation } from 'react-i18next';
 
 export default function AlertDialog() {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const handleClose = () => {
     dispatch(setInfoDialogState(false));
@@ -19,14 +21,12 @@ export default function AlertDialog() {
 
   return (
     <Dialog open={isOpen} onClose={handleClose}>
-      <DialogTitle>Info</DialogTitle>
+      <DialogTitle>{t('info')}</DialogTitle>
       <DialogContent>
-        <DialogContentText>
-          This is a simple app to display news from various sources. It is a work in progress.
-        </DialogContentText>
+        <DialogContentText>{t('info-text')}</DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}>Close</Button>
+        <Button onClick={handleClose}>{t('close')}</Button>
       </DialogActions>
     </Dialog>
   );

@@ -8,6 +8,7 @@ import DisplayToggleButtons from './DisplayToggleButtons';
 import { useDispatch, useSelector } from 'react-redux';
 import { setInfoDialogState } from '../../features/infoDialogSlice';
 import LanguageItem from './LanguageItem';
+import { useTranslation } from 'react-i18next';
 
 export default function BasicMenu() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -18,6 +19,8 @@ export default function BasicMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const { t } = useTranslation();
 
   const dispatch = useDispatch();
 
@@ -50,6 +53,7 @@ export default function BasicMenu() {
         <Settings />
       </IconButton>
       <Menu
+        data-testid="settings-menu"
         sx={{
           '& .MuiPaper-root': {
             minWidth: '10rem',
@@ -62,7 +66,6 @@ export default function BasicMenu() {
             }
           }
         }}
-        id="basic-menu"
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
@@ -73,19 +76,15 @@ export default function BasicMenu() {
           <ListItemIcon>
             <InfoIcon />
           </ListItemIcon>
-          Info
+          {t('info')}
         </MenuItem>
         <Divider />
-        <MenuItem disabled>Language</MenuItem>
-        {languages.map((language) => (
-          <LanguageItem
-            key={language.language}
-            language={language.language}
-            fullLanguage={language.fullLanguage}
-          />
+        <MenuItem disabled>{t('language')}</MenuItem>
+        {languages.map(({ language, fullLanguage }) => (
+          <LanguageItem key={language} language={language} fullLanguage={fullLanguage} />
         ))}
         <Divider />
-        <MenuItem disabled>Display</MenuItem>
+        <MenuItem disabled>{t('display')}</MenuItem>
         <MenuItem disableRipple>
           <DisplayToggleButtons />
         </MenuItem>
