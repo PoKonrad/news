@@ -1,0 +1,10 @@
+version: "1.1"
+services:
+  frontend:
+    build:
+      context: './gnNews'
+      dockerfile: './Dockerfile'
+      args:
+        - REACT_APP_NEWS_API_KEY=YOUR_API_KEY
+    ports: 
+      - '80:80'

@@ -1,0 +1,1 @@
+window.REACT_APP_NEWS_API_KEY = 'YOUR_API_KEY';
