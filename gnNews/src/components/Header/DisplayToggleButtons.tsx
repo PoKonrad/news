@@ -1,9 +1,9 @@
 import { ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
-import { useDispatch, useSelector } from 'react-redux';
 import { selectViewMode, setViewMode } from '../../features/viewModeSlice';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import ViewModuleIcon from '@mui/icons-material/ViewModule';
 import { useTranslation } from 'react-i18next';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 
 const DisplayButton: React.FC = () => {
   const { t } = useTranslation();
@@ -20,8 +20,8 @@ const DisplayButton: React.FC = () => {
     }
   ];
 
-  const mode = useSelector(selectViewMode);
-  const dispatch = useDispatch();
+  const mode = useAppSelector(selectViewMode);
+  const dispatch = useAppDispatch();
 
   const handleModeChange = (event: React.MouseEvent<HTMLElement>, newMode: string) => {
     if (newMode === null) {
@@ -45,7 +45,7 @@ const DisplayButton: React.FC = () => {
         <ToggleButton
           key={value}
           value={value}
-          data-testid={'toggleButton'}
+          data-testid={'toggle-button'}
           sx={{
             border: 'none',
             borderRadius: 10,

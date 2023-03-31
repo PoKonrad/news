@@ -21,7 +21,7 @@ const SideMenu = () => {
   };
 
   return (
-    <Drawer open={isOpen.sidePanelOpen} onClose={handleClose}>
+    <Drawer open={isOpen.sidePanelOpen} onClose={handleClose} data-testid="side-menu">
       <Box
         sx={{
           display: 'flex',
@@ -35,6 +35,7 @@ const SideMenu = () => {
         </IconButton>
       </Box>
       <TextField
+        data-testid="filter-input"
         value={filter}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           setFilter(e.target.value.toLowerCase())
@@ -48,7 +49,7 @@ const SideMenu = () => {
       <Box width="85vw" maxWidth="20rem">
         <List subheader={<ListSubheader>{t('country-selection')}</ListSubheader>}>
           {countries.map((countries: Country) => (
-            <SideMenuItem key={countries.code} country={countries} />
+            <SideMenuItem key={countries.code} country={countries} data-testid="side-menu-item" />
           ))}
         </List>
       </Box>

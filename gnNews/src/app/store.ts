@@ -1,4 +1,10 @@
-import { configureStore, ThunkAction, Action, combineReducers } from '@reduxjs/toolkit';
+import {
+  configureStore,
+  ThunkAction,
+  Action,
+  combineReducers,
+  PreloadedState
+} from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/dist/query';
 import articlePopupSlice from '../features/articlePopupSlice';
 import { infoDialogSlice } from '../features/infoDialogSlice';
@@ -25,11 +31,18 @@ export const store = configureStore({
   }
 });
 
+export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
+  return configureStore({
+    reducer: rootReducer,
+    preloadedState
+  });
+};
+
 setupListeners(store.dispatch);
 
 export type AppDispatch = typeof store.dispatch;
 export type AppStore = typeof store;
-export type RootState = ReturnType<typeof store.getState>;
+export type RootState = ReturnType<typeof rootReducer>;
 export type AppThunk<ReturnType = void> = ThunkAction<
   ReturnType,
   RootState,

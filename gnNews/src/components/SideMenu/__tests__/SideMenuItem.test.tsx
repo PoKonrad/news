@@ -10,7 +10,7 @@ const country = {
 describe('SideMenuItem', () => {
   it('should mark ListItemButton as Selected', () => {
     renderWithProviders(<SideMenuItem country={country} />);
-    const listItemButton = screen.getByTestId('ListItemButton');
+    const listItemButton = screen.getByTestId('list-item-button');
 
     expect(listItemButton).not.toHaveClass('Mui-selected');
     fireEvent.click(listItemButton);

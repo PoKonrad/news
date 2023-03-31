@@ -16,11 +16,11 @@ const SideMenuItem: React.FC<SideMenuItemProps> = ({ country }) => {
   };
 
   return (
-    <ListItem key={country.code}>
+    <ListItem key={country.code} data-testid="side-menu-item">
       <ListItemButton
         onClick={handleListItemButtonClick}
         selected={currentCountry === country}
-        data-testid="ListItemButton">
+        data-testid="list-item-button">
         <ListItemIcon>
           <img width={20} src={`/flags/4x3/${country.code.toLowerCase()}.svg`} alt={country.name} />
         </ListItemIcon>
