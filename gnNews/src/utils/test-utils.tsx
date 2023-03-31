@@ -7,7 +7,6 @@ import { Provider } from 'react-redux';
 
 import { AppStore, rootReducer, RootState } from '../app/store';
 // As a basic setup, import your same slice reducers
-// import userReducer from '../features/users/userSlice'
 
 // This type interface extends the default options for render from RTL, as well
 // as allows the user to specify other things such as initialState, store.

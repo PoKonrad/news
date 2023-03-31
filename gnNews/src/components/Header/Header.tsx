@@ -1,11 +1,11 @@
 import { AppBar, IconButton, Toolbar, Typography } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { useDispatch } from 'react-redux';
 import { toggleSidePanel } from '../../features/sidePanelSlice';
 import MobileMenu from './SettingsMenu';
+import { useAppDispatch } from '../../app/hooks';
 
 const Header = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleMenuClick = () => {
     dispatch(toggleSidePanel());

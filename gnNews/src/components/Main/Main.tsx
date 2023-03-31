@@ -1,13 +1,12 @@
 import { NewsGrid } from './NewsGrid';
-import { useDispatch, useSelector } from 'react-redux';
 import { selectViewMode, setViewMode } from '../../features/viewModeSlice';
 import NewsList from './NewsList';
 import { Fade } from '@mui/material';
 import { Box } from '@mui/system';
+import { useAppSelector } from '../../app/hooks';
 
 const Main = () => {
-  const currentDisplayMode = useSelector(selectViewMode);
-  const dispatch = useDispatch();
+  const currentDisplayMode = useAppSelector(selectViewMode);
 
   return (
     <Box>

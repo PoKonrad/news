@@ -1,28 +1,33 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
-import Dialog, { DialogProps } from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
 import { selectArticlePopup, setArticlePopupState } from '../features/articlePopupSlice';
-import { useDispatch, useSelector } from 'react-redux';
-import { Divider, Grid, Link, Typography } from '@mui/material';
+import {
+  Divider,
+  Grid,
+  Link,
+  Typography,
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle
+} from '@mui/material';
 import { useTranslation } from 'react-i18next';
+import { useEffect, useRef, useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../app/hooks';
 
 export default function ArticleDialog() {
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = useState(true);
   const { t } = useTranslation();
 
-  const article = useSelector(selectArticlePopup);
-  const dispatch = useDispatch();
+  const articleData = useAppSelector(selectArticlePopup);
+  const dispatch = useAppDispatch();
 
   const handleClose = () => {
     dispatch(setArticlePopupState(false));
   };
 
-  const descriptionElementRef = React.useRef<HTMLElement>(null);
-  React.useEffect(() => {
+  const descriptionElementRef = useRef<HTMLElement>(null);
+  useEffect(() => {
     if (open) {
       const { current: descriptionElement } = descriptionElementRef;
       if (descriptionElement !== null) {
@@ -31,19 +36,13 @@ export default function ArticleDialog() {
     }
   }, [open]);
 
-  if (!article.isOpen) {
+  if (!articleData.isOpen) {
     return null;
   }
 
   return (
     <div>
-      <Dialog
-        maxWidth="md"
-        open={article.isOpen}
-        onClose={handleClose}
-        scroll={'paper'}
-        aria-labelledby="scroll-dialog-title"
-        aria-describedby="scroll-dialog-description">
+      <Dialog maxWidth="md" open={articleData.isOpen} onClose={handleClose} scroll={'paper'}>
         <Grid
           container
           wrap="wrap"
@@ -55,26 +54,26 @@ export default function ArticleDialog() {
           }}>
           <Grid item flexWrap="wrap">
             <Typography variant="overline" fontSize="0.7rem">
-              {article.article.author ? article.article.author : 'Unknown Author'}
+              {articleData.article.author ? articleData.article.author : 'Unknown Author'}
             </Typography>
           </Grid>
           <Grid item flexWrap="wrap" textOverflow="clip">
-            <Link href={article.article.url}>
+            <Link href={articleData.article.url}>
               <Typography variant="overline" fontSize="0.5rem">
-                {new URL(article.article.url).hostname}
+                {new URL(articleData.article.url).hostname}
               </Typography>
             </Link>
           </Grid>
         </Grid>
-        <DialogTitle id="scroll-dialog-title">{article.article.title}</DialogTitle>
+        <DialogTitle id="scroll-dialog-title">{articleData.article.title}</DialogTitle>
         <DialogContent dividers>
           <DialogContentText
             id="scroll-dialog-description"
             ref={descriptionElementRef}
             tabIndex={-1}>
-            {article.article.content
-              ? article.article.content.slice(0, 200)
-              : article.article.description}
+            {articleData.article.content
+              ? articleData.article.content.slice(0, 200)
+              : articleData.article.description}
           </DialogContentText>
         </DialogContent>
         <Divider />

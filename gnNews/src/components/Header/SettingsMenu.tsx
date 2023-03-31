@@ -5,10 +5,10 @@ import InfoIcon from '@mui/icons-material/Info';
 import { Divider, IconButton, ListItemIcon } from '@mui/material';
 import { Settings } from '@mui/icons-material';
 import DisplayToggleButtons from './DisplayToggleButtons';
-import { useDispatch, useSelector } from 'react-redux';
 import { setInfoDialogState } from '../../features/infoDialogSlice';
 import LanguageItem from './LanguageItem';
 import { useTranslation } from 'react-i18next';
+import { useAppDispatch } from '../../app/hooks';
 
 export default function BasicMenu() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -22,7 +22,7 @@ export default function BasicMenu() {
 
   const { t } = useTranslation();
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleInfoClick = () => {
     dispatch(setInfoDialogState(true));

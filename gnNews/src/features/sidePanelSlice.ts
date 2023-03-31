@@ -15,3 +15,4 @@ export const sidePanelSlice = createSlice({
 
 export const { toggleSidePanel } = sidePanelSlice.actions;
 export const selectSidePanel = (state: RootState) => state.sidePanel;
+export default sidePanelSlice.reducer;

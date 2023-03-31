@@ -1,15 +1,15 @@
 import { ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
-import { useDispatch, useSelector } from 'react-redux';
 import { selectedCountry, setSelectedCountry } from '../../features/selectedContrySlice';
 import type { Country } from '../../types';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 
 interface SideMenuItemProps {
   country: Country;
 }
 
 const SideMenuItem: React.FC<SideMenuItemProps> = ({ country }) => {
-  const currentCountry = useSelector(selectedCountry);
-  const dispatch = useDispatch();
+  const currentCountry = useAppSelector(selectedCountry);
+  const dispatch = useAppDispatch();
 
   const handleListItemButtonClick = () => {
     dispatch(setSelectedCountry(country));

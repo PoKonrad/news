@@ -1,10 +1,10 @@
 import { useCallback } from 'react';
-import { useDispatch } from 'react-redux';
 import { setArticlePopupArticle, setArticlePopupState } from '../features/articlePopupSlice';
 import { Article } from '../types';
+import { useAppDispatch } from '../app/hooks';
 
 export const useArticlePopup = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const handleClick = useCallback(
     (article: Article) => {
       dispatch(setArticlePopupState(true));

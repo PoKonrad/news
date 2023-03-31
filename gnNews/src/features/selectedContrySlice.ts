@@ -1,12 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { Country } from '../types';
+import { RootState } from '../app/store';
 
 export const selectedCountrySlice = createSlice({
   name: 'selectedCountry',
   initialState: {
     value: {
-      code: 'us',
-      name: 'United States'
+      code: 'pl',
+      name: 'Poland'
     }
   },
   reducers: {
@@ -17,4 +18,5 @@ export const selectedCountrySlice = createSlice({
 });
 
 export const { setSelectedCountry } = selectedCountrySlice.actions;
-export const selectedCountry = (state: any) => state.selectedCountry.value;
+export const selectedCountry = (state: RootState) => state.selectedCountry.value;
+export default selectedCountrySlice.reducer;

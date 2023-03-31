@@ -22,3 +22,4 @@ export const localizationSlice = createSlice({
 
 export const { setLanguage } = localizationSlice.actions;
 export const selectLanguage = (state: RootState) => state.localization;
+export default localizationSlice.reducer;

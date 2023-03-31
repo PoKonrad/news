@@ -15,3 +15,4 @@ export const viewModeSlice = createSlice({
 
 export const selectViewMode = (state: RootState) => state.viewMode;
 export const { setViewMode } = viewModeSlice.actions;
+export default viewModeSlice.reducer;

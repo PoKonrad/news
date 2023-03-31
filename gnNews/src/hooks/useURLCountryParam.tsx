@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
 import { setSelectedCountry } from '../features/selectedContrySlice';
 import countryList from '../assets/countries.json';
 import { selectedCountry } from '../features/selectedContrySlice';
+import { useAppDispatch, useAppSelector } from '../app/hooks';
 
 export const useURLCountryParam = () => {
-  const dispatch = useDispatch();
-  const currentCountry = useSelector(selectedCountry);
+  const dispatch = useAppDispatch();
+  const currentCountry = useAppSelector(selectedCountry);
   const navigate = useNavigate();
   const { countryName } = useParams();
 

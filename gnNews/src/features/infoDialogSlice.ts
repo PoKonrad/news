@@ -16,3 +16,4 @@ export const infoDialogSlice = createSlice({
 
 export const { setInfoDialogState } = infoDialogSlice.actions;
 export const selectInfoDialog = (state: RootState) => state.infoDialog.open;
+export default infoDialogSlice.reducer;

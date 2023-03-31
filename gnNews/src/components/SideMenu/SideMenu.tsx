@@ -1,6 +1,5 @@
 import { Box, Drawer, IconButton, List, ListSubheader, Typography, TextField } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import { useDispatch, useSelector } from 'react-redux';
 import { selectSidePanel, toggleSidePanel } from '../../features/sidePanelSlice';
 import countryList from '../../assets/countries.json';
 import SideMenuItem from './SideMenuItem';
@@ -8,11 +7,12 @@ import type { Country } from '../../types';
 import { useTranslation } from 'react-i18next';
 import { useURLCountryParam } from '../../hooks/useURLCountryParam';
 import { useFilter } from '../../hooks/useFilter';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 
 const SideMenu = () => {
   const { filter, setFilter, countries } = useFilter(countryList);
-  const isOpen = useSelector(selectSidePanel);
-  const dispatch = useDispatch();
+  const isOpen = useAppSelector(selectSidePanel);
+  const dispatch = useAppDispatch();
   const { t } = useTranslation();
   useURLCountryParam();
 

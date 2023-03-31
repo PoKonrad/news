@@ -7,20 +7,20 @@ import {
 } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/dist/query';
 import articlePopupSlice from '../features/articlePopupSlice';
-import { infoDialogSlice } from '../features/infoDialogSlice';
-import { localizationSlice } from '../features/localizationSlice';
+import infoDialogSlice from '../features/infoDialogSlice';
+import localizationSlice from '../features/localizationSlice';
 import { newsApi } from '../features/newsApi';
-import { selectedCountrySlice } from '../features/selectedContrySlice';
-import { sidePanelSlice } from '../features/sidePanelSlice';
-import { viewModeSlice } from '../features/viewModeSlice';
+import selectedCountrySlice from '../features/selectedContrySlice';
+import sidePanelSlice from '../features/sidePanelSlice';
+import viewModeSlice from '../features/viewModeSlice';
 
 export const rootReducer = combineReducers({
-  viewMode: viewModeSlice.reducer,
-  sidePanel: sidePanelSlice.reducer,
-  selectedCountry: selectedCountrySlice.reducer,
+  viewMode: viewModeSlice,
+  sidePanel: sidePanelSlice,
+  selectedCountry: selectedCountrySlice,
   newsApi: newsApi.reducer,
-  infoDialog: infoDialogSlice.reducer,
-  localization: localizationSlice.reducer,
+  infoDialog: infoDialogSlice,
+  localization: localizationSlice,
   articlePopup: articlePopupSlice
 });
 
