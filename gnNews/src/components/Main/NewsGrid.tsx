@@ -1,23 +1,10 @@
-import {
-  Card,
-  CardActionArea,
-  CardContent,
-  CardHeader,
-  CardMedia,
-  Divider,
-  Typography
-} from '@mui/material';
+import { Card, CardActionArea, CardContent, CardMedia, Divider, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { Article } from '../../types';
 import { useGetNewsForCountry } from '../../hooks/useGetNewsForCountry';
-import { useDispatch } from 'react-redux';
-import { setArticlePopupArticle, setArticlePopupState } from '../../features/articlePopupSlice';
+import { useArticlePopup } from '../../hooks/useArticlePopup';
 export const NewsGrid = () => {
-  const dispatch = useDispatch();
-  const handleClick = (article: Article) => {
-    dispatch(setArticlePopupState(true));
-    dispatch(setArticlePopupArticle(article));
-  };
+  const openArticle = useArticlePopup();
 
   const { data, error, isLoading } = useGetNewsForCountry();
   return (
@@ -38,7 +25,7 @@ export const NewsGrid = () => {
           <CardActionArea
             sx={{ height: '100%', width: '100%' }}
             onClick={() => {
-              handleClick(article);
+              openArticle(article);
             }}>
             <CardMedia component="img" height={200} image={article.urlToImage} />
             <CardContent

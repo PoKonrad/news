@@ -1,9 +1,12 @@
 import { Box, List, ListItem, ListItemButton, Typography } from '@mui/material';
+import { useArticlePopup } from '../../hooks/useArticlePopup';
 import { useGetNewsForCountry } from '../../hooks/useGetNewsForCountry';
 import { Article } from '../../types';
 
 const NewsList = () => {
   const { data, error, isLoading } = useGetNewsForCountry();
+
+  const openArticle = useArticlePopup();
 
   if (error) {
     return <div> Something went wrong... </div>;
@@ -15,7 +18,10 @@ const NewsList = () => {
         {isLoading && <div>Loading...</div>}
         {data?.articles.map((article: Article) => (
           <ListItem divider key={article.url}>
-            <ListItemButton>
+            <ListItemButton
+              onClick={() => {
+                openArticle(article);
+              }}>
               <Box
                 sx={{
                   display: 'flex',
